@@ -8,8 +8,13 @@ import java.util.Map;
 public class Storage {
     private Map<String, List<String>> map;
 
-    public  Storage() {
-        map = new HashMap<>();
+    public  Storage()  {
+        this(new HashMap<>());
+    }
+
+    public  Storage(Map<String, List<String>> map)
+    {
+        this.map = map;
     }
 
     public void addToStorage(String key, String value)
