@@ -6,6 +6,7 @@ public class Main {
         //new Exercise1().execute();
         //new Exercise2().execute();
         //new Exercise3().execute();
-        new Exercise4().execute();
+        //new Exercise4().execute();
+        new Exercise6().execute();
     }
 }
