@@ -1,8 +1,18 @@
 package pl.sdacademy.JavaAdvanced.ex9;
 
-public class Circle {
+import pl.sdacademy.JavaAdvanced.ex10.I_Movable;
+import pl.sdacademy.JavaAdvanced.ex10.MoveDirection;
+
+public class Circle implements I_Movable {
 
     private Point2D center;
+
+    @Override
+    public void move(MoveDirection moveDirection) {
+        center.move(moveDirection);
+        point.move(moveDirection);
+    }
+
     private Point2D point;
 
     public Circle(Point2D center, Point2D point) {
