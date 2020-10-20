@@ -13,9 +13,12 @@ public class Main {
         System.out.println(kolo.getPerimeter());
         MoveDirection moveDirection = new MoveDirection(3,7);
         kolo.move(moveDirection);
+        kolo.resize(0.5);
         System.out.println(kolo.getRadius());
         System.out.println(kolo.getArea());
         System.out.println(kolo.getPerimeter());
+
+
 
     }
 }
