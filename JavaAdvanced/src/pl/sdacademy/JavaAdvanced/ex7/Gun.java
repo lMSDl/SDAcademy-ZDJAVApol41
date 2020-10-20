@@ -1,12 +1,11 @@
 package pl.sdacademy.JavaAdvanced.ex7;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Gun {
     private final int rozmiarMagazynka;
-    private int iloscNaboiWMagazynku = 0;
-    private List<String> stringiWMagazynku = new ArrayList<>();
+    // private int iloscNaboiWMagazynku = 0;
+    private Stack<String> stringiWMagazynku = new Stack<>();
 
 
     public Gun(int rozmiarMagazynka) {
@@ -14,9 +13,8 @@ public class Gun {
     }
 
     public void loadBullet(String bullet) {
-        if (iloscNaboiWMagazynku < rozmiarMagazynka) {
-            stringiWMagazynku.add(bullet);
-            iloscNaboiWMagazynku++;
+        if (stringiWMagazynku.size() < rozmiarMagazynka) {
+            stringiWMagazynku.push(bullet);
         } else {
             System.out.println("Nie mozna załadowac naboju");
         }
@@ -31,17 +29,18 @@ public class Gun {
             return true;
         }
         */
-        return iloscNaboiWMagazynku > 0;
+        return !stringiWMagazynku.isEmpty();
     }
 
     public void shot() {
         if (isLoaded()) {
-            var bullet = stringiWMagazynku.remove((--iloscNaboiWMagazynku));
+            var bullet = stringiWMagazynku.pop();
             System.out.println(bullet);
-        }else {
+        } else {
             System.out.println("Nie ma czym strzelać!");
         }
     }
+
 
 
 }
