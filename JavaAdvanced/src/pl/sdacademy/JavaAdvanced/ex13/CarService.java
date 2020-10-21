@@ -28,4 +28,24 @@ public class CarService {
     public List<Car> getList() {
         return new ArrayList<>(carList);
     }
+
+    public List<Car> getV12() {
+        List<Car> results = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getEngine() == Engine.V12) {
+                results.add(car);
+            }
+        }
+        return results;
+    }
+
+    public Car getMostExpensive() {
+        Car result = carList.get(0);
+        for (int i = 1; i < carList.size(); i++) {
+            if (result.getPrice() < carList.get(i).getPrice()) {
+                result = carList.get(i);
+            }
+        }
+        return result;
+    }
 }
