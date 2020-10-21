@@ -6,14 +6,18 @@ import java.util.Objects;
 public class Car {
     private String name;
     private String model;
-    private String yearOfProduction;
-    private List<Manufacturer> manufacturer;
+    private int yearOfProduction;
+    private Manufacturer manufacturer;
+    private float price;
+    private Engine engine;
 
-    public Car(String name, String model, String yearOfProduction, List<Manufacturer> manufacturer) {
+    public Car(String name, String model, int yearOfProduction, Manufacturer manufacturer, float price, Engine engine) {
         this.name = name;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
         this.manufacturer = manufacturer;
+        this.price = price;
+        this.engine = engine;
     }
 
     public String getName() {
@@ -32,20 +36,36 @@ public class Car {
         this.model = model;
     }
 
-    public String getYearOfProduction() {
+    public int getYearOfProduction() {
         return yearOfProduction;
     }
 
-    public void setYearOfProduction(String yearOfProduction) {
+    public void setYearOfProduction(int yearOfProduction) {
         this.yearOfProduction = yearOfProduction;
     }
 
-    public List<Manufacturer> getManufacturer() {
+    public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(List<Manufacturer> manufacturer) {
+    public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 
     @Override
@@ -53,14 +73,16 @@ public class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return name.equals(car.name) &&
+        return yearOfProduction == car.yearOfProduction &&
+                Float.compare(car.price, price) == 0 &&
+                name.equals(car.name) &&
                 model.equals(car.model) &&
-                yearOfProduction.equals(car.yearOfProduction) &&
-                manufacturer.equals(car.manufacturer);
+                manufacturer.equals(car.manufacturer) &&
+                engine == car.engine;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, model, yearOfProduction, manufacturer);
+        return Objects.hash(name, model, yearOfProduction, manufacturer, price, engine);
     }
 }
