@@ -52,4 +52,13 @@ public class Manufacturer {
     public int hashCode() {
         return Objects.hash(name, year, country);
     }
+
+    @Override
+    public String toString() {
+        return "Manufacturer{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

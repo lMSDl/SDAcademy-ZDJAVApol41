@@ -9,19 +9,20 @@ import java.util.List;
 
 public class CarService {
     private List<Car> carList;
-    public CarService () {
-     carList = new ArrayList<>();
-     carList.add(new Car("Yaris", "Classic", 2015, new Manufacturer("Toyota", 1937,"Japan"), 70_000.00f, Engine.V12));
-        carList.add(new Car("i8", "Coupe", 2013, new Manufacturer("BMW", 1916,"Germany"), 600_000.00f, Engine.S3));
-        carList.add(new Car("model s", "Classic", 2018, new Manufacturer("Tesla", 2003,"USA"), 654_000.00f, Engine.S4));
+
+    public CarService() {
+        carList = new ArrayList<>();
+        carList.add(new Car("Yaris", "Classic", 2015, new Manufacturer("Toyota", 1937, "Japan"), 70_000.00f, Engine.V12));
+        carList.add(new Car("model s", "Classic", 2018, new Manufacturer("Tesla", 2003, "USA"), 70_000.00f, Engine.S4));
+        carList.add(new Car("i8", "Coupe", 2013, new Manufacturer("BMW", 1916, "Germany"), 70_000.00f, Engine.S3));
 
     }
 
-    public void add (Car car) {
+    public void add(Car car) {
         carList.add(car);
     }
 
-    public boolean remove (Car car) {
+    public boolean remove(Car car) {
         return carList.remove(car);
     }
 
@@ -39,6 +40,16 @@ public class CarService {
         return results;
     }
 
+    public List<Car> getBefore1999(){
+        List<Car> localResult = new ArrayList<>();
+        for(Car car : carList){
+            if (car.getYearOfProduction() < 1999){
+                localResult.add(car);
+            }
+        }
+        return localResult;
+    }
+
     public Car getMostExpensive() {
         Car result = carList.get(0);
         for (int i = 1; i < carList.size(); i++) {
@@ -47,5 +58,30 @@ public class CarService {
             }
         }
         return result;
+    }
+
+    public List<Car> getCheapestCarList() {
+
+        List<Car> localList = new ArrayList<>();
+        Car result = carList.get(0);
+        for (int i = 1; i < carList.size(); i++) {
+            if (result.getPrice() > carList.get(i).getPrice()) {
+                result = carList.get(i);
+            }
+        }
+        localList.add(result);
+        for (int i = 1; i < carList.size(); i++) {
+            if (result.getPrice() == carList.get(i).getPrice()) {
+                localList.add(carList.get(i));
+            }
+        }
+        return localList;
+    }
+
+    @Override
+    public String toString() {
+        return "CarService{" +
+                "carList=" + carList +
+                '}';
     }
 }
