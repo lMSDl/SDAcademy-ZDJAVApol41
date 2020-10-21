@@ -95,7 +95,7 @@ public class Car {
                 ", manufacturer=" + manufacturer +
                 ", price=" + price +
                 ", engine=" + engine +
-                '}';
+                '}' + "\n";
     }
 
 
