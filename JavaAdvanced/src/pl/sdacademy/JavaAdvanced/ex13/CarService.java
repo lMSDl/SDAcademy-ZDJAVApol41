@@ -40,10 +40,10 @@ public class CarService {
         return results;
     }
 
-    public List<Car> getBefore1999(){
+    public List<Car> getBefore1999() {
         List<Car> localResult = new ArrayList<>();
-        for(Car car : carList){
-            if (car.getYearOfProduction() < 1999){
+        for (Car car : carList) {
+            if (car.getYearOfProduction() < 1999) {
                 localResult.add(car);
             }
         }
@@ -78,25 +78,37 @@ public class CarService {
         return localList;
     }
 
-    public List<Car> sortByName(){
+    public List<Car> sortByName() {
         List<Car> localList = new ArrayList<>(carList);
         localList.sort(new SortByName());
 
         return localList;
     }
 
-    public List<Car> SortByPriceFromCheapestToMostExpensive(){
+    public List<Car> SortByPriceFromCheapestToMostExpensive() {
         List<Car> locallist = new ArrayList<>(carList);
         locallist.sort(new SortByPriceFromCheapestToMostExpensive());
 
         return locallist;
     }
 
-    public List<Car> SortByPriceFromMostExpensiveToCheapest(){
+    public List<Car> SortByPriceFromMostExpensiveToCheapest() {
         List<Car> locallist = new ArrayList<>(carList);
         locallist.sort(new SortByPriceFromMostExpensiveToCheapest());
 
         return locallist;
+    }
+
+    public boolean tellMeIfItISTruCar() {
+        String carName = "Yaris";
+        for (Car car : carList) {
+
+            if (car.getName().equals(carName)){
+                System.out.print("mamy na stanie! " + carName + " ");
+            return true;}
+        }
+        System.out.print("nie ma na stanie! " + carName + " ");
+        return false;
     }
 
 
