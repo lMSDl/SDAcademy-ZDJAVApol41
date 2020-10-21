@@ -99,8 +99,8 @@ public class CarService {
         return locallist;
     }
 
-    public boolean tellMeIfItISTruCar() {
-        String carName = "Yaris";
+    public boolean tellMeIfItISTruCar(String carName) {
+
         for (Car car : carList) {
 
             if (car.getName().equals(carName)){

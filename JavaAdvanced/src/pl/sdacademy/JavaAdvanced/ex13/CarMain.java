@@ -14,6 +14,6 @@ public class CarMain {
         System.out.println("Sorted By Price From Most Expensive To Cheapest: " + carService.SortByPriceFromMostExpensiveToCheapest());
 
         System.out.println("Czy mamy na zstanie?");
-        System.out.println(carService.tellMeIfItISTruCar());
+        System.out.println(carService.tellMeIfItISTruCar("Yaris"));
     }
 }
