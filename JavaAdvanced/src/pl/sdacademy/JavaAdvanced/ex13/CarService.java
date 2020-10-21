@@ -12,8 +12,8 @@ public class CarService {
 
     public CarService() {
         carList = new ArrayList<>();
-        carList.add(new Car("Yaris", "Classic", 2015, new Manufacturer("Toyota", 1937, "Japan"), 70_000.00f, Engine.V12));
-        carList.add(new Car("model s", "Classic", 2018, new Manufacturer("Tesla", 2003, "USA"), 70_000.00f, Engine.S4));
+        carList.add(new Car("Yaris", "Classic", 2015, new Manufacturer("Toyota", 1937, "Japan"), 80_000.00f, Engine.V12));
+        carList.add(new Car("model s", "Classic", 2018, new Manufacturer("Tesla", 2003, "USA"), 50_000.00f, Engine.S4));
         carList.add(new Car("i8", "Coupe", 2013, new Manufacturer("BMW", 1916, "Germany"), 70_000.00f, Engine.S3));
 
     }
@@ -77,6 +77,28 @@ public class CarService {
         }
         return localList;
     }
+
+    public List<Car> sortByName(){
+        List<Car> localList = new ArrayList<>(carList);
+        localList.sort(new SortByName());
+
+        return localList;
+    }
+
+    public List<Car> SortByPriceFromCheapestToMostExpensive(){
+        List<Car> locallist = new ArrayList<>(carList);
+        locallist.sort(new SortByPriceFromCheapestToMostExpensive());
+
+        return locallist;
+    }
+
+    public List<Car> SortByPriceFromMostExpensiveToCheapest(){
+        List<Car> locallist = new ArrayList<>(carList);
+        locallist.sort(new SortByPriceFromMostExpensiveToCheapest());
+
+        return locallist;
+    }
+
 
     @Override
     public String toString() {

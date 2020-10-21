@@ -8,5 +8,9 @@ public class CarMain {
         System.out.println(carService.getMostExpensive().getName());
 
         System.out.println(carService.getBefore1999());
+
+        System.out.println("sorted by name: " + carService.sortByName());
+        System.out.println("Sorted By Price From Cheapest To Most Expensive: " + carService.SortByPriceFromCheapestToMostExpensive());
+        System.out.println("Sorted By Price From Most Expensive To Cheapest: " + carService.SortByPriceFromMostExpensiveToCheapest());
     }
 }
