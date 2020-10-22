@@ -9,20 +9,21 @@ import java.util.stream.Stream;
 public class Array {
 
     private List<Integer> array;
+    private final int size = 10000;
 
     public Array() {
         generateByStream();
     }
 
     private  void generateByStream() {
-        array = Stream.generate(() -> new Random().nextInt(1000)).limit(1000).collect(Collectors.toList());
+        array = Stream.generate(() -> new Random().nextInt(size)).limit(size).collect(Collectors.toList());
     }
 
     private void generate() {
         Random random = new Random();
         array = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            array.add(i, random.nextInt(10));
+        for (int i = 0; i < size; i++) {
+            array.add(i, random.nextInt(size));
         }
     }
 
@@ -89,9 +90,9 @@ public class Array {
     public  void deduplicate() {
         for (int i = 0; i < array.size(); i++) {
             var value = array.get(i);
-            var duplicate = array.stream().filter(x -> x == value).count() > 1;
+            var duplicate = array.stream().filter(x -> x.equals(value)).count() > 1;
             if(duplicate) {
-                array.set(i, new Random().nextInt(array.size()*10));
+                array.set(i, new Random().nextInt(array.size()*100));
                 i--;
             }
         }
