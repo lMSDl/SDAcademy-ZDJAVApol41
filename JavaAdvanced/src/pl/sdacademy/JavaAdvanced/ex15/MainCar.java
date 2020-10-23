@@ -4,15 +4,12 @@ public class MainCar{
     public static void main(String[] args) {
 
         System.out.println(Car.FERRARI.isFasterThan(Car.MERCEDES));
-<<<<<<< HEAD
         System.out.println(Car.PORSCHE.isFasterThan(Car.FIAT));
         System.out.println(Car.FERRARI.isFasterThan(Car.BMW));
         System.out.println(Car.BMW.isFasterThan(Car.FERRARI));
         System.out.println(Car.BMW.isFasterThan(Car.MERCEDES));
         System.out.println(Car.OPEL.isFasterThan(Car.FERRARI));
-=======
 
->>>>>>> 168653f657a7698a444da0fdba760e05184adfbd
 
     }
 
