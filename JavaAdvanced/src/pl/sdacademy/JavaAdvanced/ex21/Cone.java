@@ -17,11 +17,28 @@ public class Cone extends ThreeDShape {
 
     @Override
     public double calculatePerimeter() {
-        return 2*Math.PI;
+        return 2 * Math.PI;
     }
 
     @Override
     public double calculateArea() {
         return Math.PI * r * r + Math.PI * r * h;
+    }
+
+
+    @Override
+    public void fill(double water) {
+      String czyWody = "Czy za dużo wody? ";
+        if (calculateVolume() > water) {
+            System.out.println(czyWody + " nie");
+        }
+
+      else if (calculateVolume() == water) {
+            System.out.println(czyWody + " po brzegi");
+        }
+       else  {
+            System.out.println(czyWody + " tak");
+        }
+
     }
 }

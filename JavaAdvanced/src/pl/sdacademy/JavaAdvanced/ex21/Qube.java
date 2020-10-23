@@ -22,4 +22,20 @@ public class Qube extends ThreeDShape {
     public double calculateArea() {
         return 6 * a * a;
     }
+
+    @Override
+    public void fill(double water) {
+        String czyWody = "Czy za dużo wody? ";
+        if (calculateVolume() < water)
+            System.out.println(czyWody + " no");
+
+
+        if (calculateVolume() == water)
+            System.out.println(czyWody + " po brzegi");
+
+
+        if (calculateVolume() > water)
+            System.out.println(czyWody + " nie");
+
+    }
 }
