@@ -16,7 +16,7 @@ public enum Users {
     AUREL{
         @Override
         String imie() {
-            return "Aurelian";
+            return "Aurel";
         }
     },
     DOMINIK{
