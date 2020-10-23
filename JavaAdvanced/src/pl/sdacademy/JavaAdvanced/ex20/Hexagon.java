@@ -9,12 +9,12 @@ public class Hexagon extends Shape {
     }
 
     @Override
-    double calculatePerimeter() {
+    protected double calculatePerimeter() {
         return 6*a;
     }
 
     @Override
-    double calculateArea() {
+    protected double calculateArea() {
         return (3*a*a*Math.sqrt(3))/2;
     }
 }

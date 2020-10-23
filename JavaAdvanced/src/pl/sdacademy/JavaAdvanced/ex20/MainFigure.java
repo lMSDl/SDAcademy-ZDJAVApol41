@@ -1,5 +1,8 @@
 package pl.sdacademy.JavaAdvanced.ex20;
 
+import pl.sdacademy.JavaAdvanced.ex21.Cone;
+import pl.sdacademy.JavaAdvanced.ex21.Qube;
+
 public class MainFigure {
     public static void main(String[] args) {
 
@@ -14,6 +17,17 @@ public class MainFigure {
         Rectangle rectangle = new Rectangle(2, 5);
         System.out.println("rectangle.calculateArea() = " + rectangle.calculateArea());
         System.out.println("rectangle.calculatePerimeter() = " + rectangle.calculatePerimeter());
+
+        Cone cone = new Cone(2,2);
+        System.out.println("cone.calculateArea() = " + cone.calculateArea());
+        System.out.println("cone.calculatePerimeter() = " + cone.calculatePerimeter());
+        System.out.println("cone.calculateVolume() = " + cone.calculateVolume());
+
+        Qube qube = new Qube(2);
+        System.out.println("qube.calculateArea() = " + qube.calculateArea());
+        System.out.println("qube.calculatePerimeter() = " + qube.calculatePerimeter());
+        System.out.println("qube.calculateVolume() = " + qube.calculateVolume());
+
 
     }
 }

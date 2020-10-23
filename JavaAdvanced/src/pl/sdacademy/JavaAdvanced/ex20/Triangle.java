@@ -12,12 +12,12 @@ public class Triangle extends Shape {
     }
 
     @Override
-    double calculatePerimeter() {
+    protected double calculatePerimeter() {
         return a + 2 * b;
     }
 
     @Override
-    double calculateArea() {
+    protected double calculateArea() {
         return 0.5 * a * h;
     }
 }
