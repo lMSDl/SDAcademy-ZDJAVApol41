@@ -1,8 +1,9 @@
 package pl.sdacademy.JavaAdvanced.ex15;
 
 
+import java.util.Comparator;
 
-public enum Car implements Comparable<Car> {
+public enum Car implements Comparator<Car> {
     FERRARI(500000, 650),
     PORSCHE(450000, 500),
     MERCEDES(300000, 400),
@@ -32,10 +33,13 @@ public enum Car implements Comparable<Car> {
     }
 
 
-//    public boolean isFasterThan(Car car, Car car2){
-//        return compare(car, car2) > 0;
-//    }
+   public boolean isFasterThan(Car car){
+       return compareTo(car) < 0 ;
+    }
 
 
-
+    @Override
+    public int compare(Car o1, Car o2) {
+        return o1.compareTo(o2);
+    }
 }
