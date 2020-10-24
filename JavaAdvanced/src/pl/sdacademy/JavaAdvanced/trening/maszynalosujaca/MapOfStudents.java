@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 
 public class MapOfStudents {
-    Scanner scanner = new Scanner(System.in);
+
     private EnumMap<Users, Integer> mapOfStudents;
     private EnumMap<Users, Integer> localDoMap;
     List<Users> numberFromLocalDoMapList = new ArrayList<>();
@@ -192,6 +192,7 @@ public class MapOfStudents {
     }
 
     public String repeta() {
+        Scanner scanner = new Scanner(System.in);
         String confirmation = "";
         do {
             System.out.println();
