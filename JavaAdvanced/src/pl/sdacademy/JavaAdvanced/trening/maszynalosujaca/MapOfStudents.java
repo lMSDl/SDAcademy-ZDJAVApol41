@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 
 public class MapOfStudents {
-
+    Scanner scanner = new Scanner(System.in);
     private EnumMap<Users, Integer> mapOfStudents;
     private EnumMap<Users, Integer> localDoMap;
-    List<Users> numberFromLocalDoMapList = new ArrayList<>();
-    List<Users> listOfWhoWillNotBeConsideredForLottery = new ArrayList<>();
+    private final List<Users> numberFromLocalDoMapList = new ArrayList<>();
+    private final List<Users> listOfWhoWillNotBeConsideredForLottery = new ArrayList<>();
     private String out = "1";
 
     public EnumMap<Users, Integer> showStudents() {
@@ -34,13 +34,11 @@ public class MapOfStudents {
         return this.mapOfStudents;
     }
 
-
     public void whichStudent() {
 
         Scanner scanner = new Scanner(System.in);
         String pozostaleOsoby = "Osoby, które pozostały do losowania: ";
         EnumMap<Users, Integer> localMap = new EnumMap<Users, Integer>(mapOfStudents);
-        // this.out = "1";
 
         do {
             if (!out.equals("n")) {
@@ -48,53 +46,46 @@ public class MapOfStudents {
                     if (!out.equals("n")) {
                         out = scanner.next().toLowerCase();
 
-                        if (out.equals("1") || (out.equals("agata"))) {
+                        if (out.equals(Users.AGATA.getOdrderNumber()) || (out.equals(Users.AGATA.getName().toLowerCase()))) {
                             localMap.remove(Users.AGATA);
-                        }
-                        if (out.equals("2") || out.equals("andrzej")) {
+                        } else if (out.equals(Users.ANDRZEJ.getOdrderNumber()) || (out.equals(Users.ANDRZEJ.getName().toLowerCase()))) {
                             localMap.remove(Users.ANDRZEJ);
-                        }
-                        if (out.equals("3") || out.equals("aurel")) {
+                        } else if (out.equals(Users.AUREL.getOdrderNumber()) || (out.equals(Users.AUREL.getName().toLowerCase()))) {
                             localMap.remove(Users.AUREL);
-                        }
-                        if (out.equals("4") || out.equals("dominik")) {
+                        } else if (out.equals(Users.DOMINIK.getOdrderNumber()) || (out.equals(Users.DOMINIK.getName().toLowerCase()))) {
                             localMap.remove(Users.DOMINIK);
-                        }
-                        if (out.equals("5") || out.equals("dymitr")) {
+                        } else if (out.equals(Users.DYMITR.getOdrderNumber()) || (out.equals(Users.DYMITR.getName().toLowerCase()))) {
                             localMap.remove(Users.DYMITR);
-                        }
-                        if (out.equals("6") || out.equals("jakub")) {
+                        } else if (out.equals(Users.JAKUB.getOdrderNumber()) || (out.equals(Users.JAKUB.getName().toLowerCase()))) {
                             localMap.remove(Users.JAKUB);
-                        }
-                        if (out.equals("7") || out.equals("kamil")) {
+                        } else if (out.equals(Users.KAMIL.getOdrderNumber()) || (out.equals(Users.KAMIL.getName().toLowerCase()))) {
                             localMap.remove(Users.KAMIL);
-                        }
-                        if (out.equals("8") || out.equals("krzysztof")) {
+                        } else if (out.equals(Users.KRZYSZTOF.getOdrderNumber()) || (out.equals(Users.KRZYSZTOF.getName().toLowerCase()))) {
                             localMap.remove(Users.KRZYSZTOF);
-                        }
-                        if (out.equals("9") || out.equals("mateusz")) {
+                        } else if (out.equals(Users.MATEUSZ.getOdrderNumber()) || (out.equals(Users.MATEUSZ.getName().toLowerCase()))) {
                             localMap.remove(Users.MATEUSZ);
-                        }
-                        if (out.equals("10") || out.equals("mateusz_p")) {
+                        } else if (out.equals(Users.MATEUSZ_P.getOdrderNumber()) || (out.equals(Users.MATEUSZ_P.getName().toLowerCase()))) {
                             localMap.remove(Users.MATEUSZ_P);
-                        }
-                        if (out.equals("11") || out.equals("michal")) {
+                        } else if (out.equals(Users.MICHAL.getOdrderNumber()) || (out.equals(Users.MICHAL.getName().toLowerCase()))) {
                             localMap.remove(Users.MICHAL);
-                        }
-                        if (out.equals("12") || out.equals("michal_m")) {
+                        } else if (out.equals(Users.MICHAL_M.getOdrderNumber()) || (out.equals(Users.MICHAL_M.getName().toLowerCase()))) {
                             localMap.remove(Users.MICHAL_M);
-                        }
-                        if (out.equals("13") || out.equals("pawel")) {
+                        } else if (out.equals(Users.PAWEL.getOdrderNumber()) || (out.equals(Users.PAWEL.getName().toLowerCase()))) {
                             localMap.remove(Users.PAWEL);
-                        }
-                        if (out.equals("14") || out.equals("piotr")) {
+                        } else if (out.equals(Users.PIOTR.getOdrderNumber()) || (out.equals(Users.PIOTR.getName().toLowerCase()))) {
                             localMap.remove(Users.PIOTR);
-                        }
-                        if (out.equals("15") || out.equals("radek")) {
+                        } else if (out.equals(Users.RADEK.getOdrderNumber()) || (out.equals(Users.RADEK.getName().toLowerCase()))) {
                             localMap.remove(Users.RADEK);
+                        } else {
+                            System.out.println("\nNie ma takiego imienia, podaj inne: ");
+
+                            //***** wybór "n" powoduje dupnięcie wyjątku!!! *****
+
+                            //if (out.equals("n")){
+                              //  System.out.println(changeN(out));
+                           // }
                         }
                     }
-
 
                     if (!out.equals("n")) {
                         localDoMap = new EnumMap<Users, Integer>(localMap);
@@ -192,7 +183,6 @@ public class MapOfStudents {
     }
 
     public String repeta() {
-        Scanner scanner = new Scanner(System.in);
         String confirmation = "";
         do {
             System.out.println();
@@ -200,9 +190,16 @@ public class MapOfStudents {
             confirmation = scanner.nextLine();
             if (confirmation.equals("t")) {
                 System.out.println(forMeItsLotto());
+            } else if (!confirmation.equals("n")) {
+                System.out.print("Wybierz właściwą komendę: ");
             }
         } while (confirmation.equals("t"));
         return "koniec programu";
+    }
+
+    private String changeN(String n){
+        this.out = "";
+        return "\nDawno, dawno temu, było sobie jajko. Nazywało się Easter Egg. Wykluła się z niego kura i rzekła: \"Nie używaj imienia \"n\", bowiem jest ono zabronione!\n";
     }
 }
 
