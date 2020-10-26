@@ -2,7 +2,7 @@ package pl.sdacademy.JavaAdvanced.ex15;
 
 import java.util.Comparator;
 
-public enum Car implements Comparator<Car> {
+public enum Car {
     FERRARI(500000, 650),
     PORSCHE(450000, 600),
     MERCEDES(300000, 400),
@@ -32,17 +32,13 @@ public enum Car implements Comparator<Car> {
         return false;
     }
 
-    public static boolean isFasterThan(Car car, Car car2) {
-        Integer firstCarPower = car.getMoc();
-        Integer secondCarPower = car2.getMoc();
-        if (firstCarPower.compareTo(secondCarPower) > 0)
-            return true;
-        return false;
-    }
+    public boolean isFasterThan(Car car) {
+        return Integer.valueOf(moc).compareTo(car.getMoc()) > 0;
 
-
-    @Override
-    public int compare(Car o1, Car o2) {
-        return o1.getMoc() - o2.getMoc();
+//        Integer firstCarPower = car.getMoc();
+//        Integer secondCarPower = car2.getMoc();
+//        if (firstCarPower.compareTo(secondCarPower) > 0)
+//            return true;
+//        return false;
     }
 }
