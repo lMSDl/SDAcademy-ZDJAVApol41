@@ -6,9 +6,16 @@ public class main {
         Basket basket = new Basket();
 
         for (int i = 0; i < 12; i++) {
-            basket.addToBasket();
-        }
+            try {
+                basket.addToBasket();
+                //basket.removeFromBasket();
+//            } catch (Basket.BasketEmptyException basketEmptyException) {
+//                System.out.println("Basket is empty");
+            } catch (Basket.BasketFullException basketFullException) {
+                System.out.println("Basket is full");
+            }
 
+        }
 
     }
 }

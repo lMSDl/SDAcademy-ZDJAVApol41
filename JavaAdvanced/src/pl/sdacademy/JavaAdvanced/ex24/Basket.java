@@ -9,24 +9,24 @@ package pl.sdacademy.JavaAdvanced.ex24;
 public class Basket {
     int licznik;
 
-    public void addToBasket(){
+    public void addToBasket() throws BasketFullException {
         if(licznik == 10) {
             throw new BasketFullException();
         }
         licznik++;
     }
 
-    public void removeFromBasket() {
+    public void removeFromBasket() throws BasketEmptyException {
         if (licznik == 0){
             throw new BasketEmptyException();
         }
         licznik--;
     }
 
-    public class BasketFullException extends RuntimeException{
+    public class BasketFullException extends Exception{
     }
 
-    public class BasketEmptyException extends RuntimeException{
+    public class BasketEmptyException extends Exception{
     }
 
 
